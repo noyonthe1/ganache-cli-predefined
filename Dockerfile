@@ -1,8 +1,8 @@
-FROM node:9.7.1-alpine
+FROM node:9.9.0-alpine
 RUN npm install -g ganache-cli
-ADD testrpc.js
+
+COPY *.txt *.js ./
 
 EXPOSE 8545
-
 # To run a testrpc with predefined keys
-CMD node ./testrpc.js
+CMD /usr/local/bin/node ./testrpc.js

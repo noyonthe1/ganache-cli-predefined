@@ -7,7 +7,7 @@ const spawn = require('child_process').spawn;
 const fs = require('fs');
 const limit = process.argv[2] || 76;
 
-let command = 'testrpc';
+let command = 'ganache-cli';
 const params = [];
 if (/^win/.test(process.platform)) {
   params.push('/s');
