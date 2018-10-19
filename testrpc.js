@@ -16,19 +16,21 @@ if (/^win/.test(process.platform)) {
   command = 'cmd';
 }
 params.push('-l');  params.push('4500000000000');
-params.push('--gasLimit'); params.push(6800975);
-params.push('--gasPrice'); params.push(1000);
+params.push('-m');  params.push("candy maple cake sugar pudding cream honey rich smooth crumble sweet treat");
 
-const contents = fs.readFileSync(__dirname + '/_user_keys.txt', 'utf8');
-const accounts = contents.split("\n");
-for (let ai = 0; ai < accounts.length; ai++) {
-    const a = accounts[ai].trim();
-    if (!a) continue;
-    params.push('--account=0x' + a + ',1000000000000000000000');
-    if (ai >= limit) break;
-}
+//params.push('--gasLimit'); params.push(6800975);
+//params.push('--gasPrice'); params.push(1000);
 
-// console.log(command, JSON.stringify(params));
+// const contents = fs.readFileSync(__dirname + '/_user_keys.txt', 'utf8');
+// const accounts = contents.split("\n");
+// for (let ai = 0; ai < accounts.length; ai++) {
+//     const a = accounts[ai].trim();
+//     if (!a) continue;
+//     params.push('--account=0x' + a + ',1000000000000000000000');
+//     if (ai >= limit) break;
+// }
+
+console.log(command, JSON.stringify(params));
 const ls = spawn(command, params);
 
 const out = (data) => { process.stdout.write(data.toString()); }
